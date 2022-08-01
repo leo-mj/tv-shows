@@ -1,12 +1,20 @@
-import episodes from "./episodes.json";
+// import episodes from "./episodes.json";
 import { EpisodeList } from "./episode-list";
 import { episodeMatch } from "./utils/episode-match";
 import IEpisode from "./utils/i-episode";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 function App(): JSX.Element {
   const [searchText, setSearchText] = useState<string>("");
-  const filteredEpisodes: IEpisode[] = episodes.filter((episode) =>
+  const [previousData, setData] = useState<IEpisode[]>([]);
+  useEffect(() => {
+    fetch("https://api.tvmaze.com/shows/82/episodes")
+      .then((response) => response.json())
+      .then((jsonBody: IEpisode[]) => {
+        setData(jsonBody);
+      });
+  }, []);
+  const filteredEpisodes: IEpisode[] = previousData.filter((episode) =>
     episodeMatch(episode, searchText)
   );
   return (
@@ -18,7 +26,7 @@ function App(): JSX.Element {
         placeholder="Search"
       />
       <p>
-        Displaying {filteredEpisodes.length}/{episodes.length} episodes
+        Displaying {filteredEpisodes.length}/{previousData.length} episodes
       </p>
       <div className="episodeList">
         {filteredEpisodes.map((element, i) => (

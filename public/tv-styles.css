@@ -1,0 +1,16 @@
+.episodeList {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.episodeEntry {
+    display: block;
+    width: 500px;
+    margin: 20px 50px 20px 50px;
+    border: solid black 1px;
+}
+
+.episodeImage {
+    height: 100px;
+    width: 150px;
+}

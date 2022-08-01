@@ -4,12 +4,16 @@ import { omitPTags } from "./utils/omit-p-tags";
 
 export function EpisodeList(episode: IEpisode): JSX.Element {
   return (
-    <>
+    <div className="episodeEntry">
       <h1>{episode.name}</h1>
       <h2>{episodeCode(episode.season, episode.number)}</h2>
-      <img src={episode.image.medium} alt="episode thumbnail" />
+      <img
+        className="episodeImage"
+        src={episode.image.medium}
+        alt="episode thumbnail"
+      />
       <h2>Episode summary:</h2>
       <p>{omitPTags(episode.summary)}</p>
-    </>
+    </div>
   );
 }

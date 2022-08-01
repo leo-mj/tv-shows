@@ -22,6 +22,14 @@ function App(): JSX.Element {
           _links={element._links}
         />
       ))}
+      <footer>
+        <p>
+          Source:{" "}
+          <span>
+            <a href="https://tvmaze.com/">https://tvmaze.com/</a>
+          </span>
+        </p>
+      </footer>
     </>
   );
 }

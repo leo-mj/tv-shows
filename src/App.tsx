@@ -1,11 +1,27 @@
 import episodes from "./episodes.json";
 import { EpisodeList } from "./episode-list";
+import { episodeMatch } from "./utils/episode-match";
+import IEpisode from "./utils/i-episode";
+import { useState } from "react";
 
 function App(): JSX.Element {
+  const [searchText, setSearchText] = useState<string>("");
+  const filteredEpisodes: IEpisode[] = episodes.filter((episode) =>
+    episodeMatch(episode, searchText)
+  );
   return (
     <>
+      <input
+        value={searchText}
+        onChange={(e) => setSearchText(e.target.value)}
+        type="text"
+        placeholder="Search"
+      />
+      <p>
+        Displaying {filteredEpisodes.length}/{episodes.length} episodes
+      </p>
       <div className="episodeList">
-        {episodes.map((element, i) => (
+        {filteredEpisodes.map((element, i) => (
           <EpisodeList
             key={i}
             id={element.id}
@@ -18,6 +34,7 @@ function App(): JSX.Element {
             airtime={element.airtime}
             airstamp={element.airstamp}
             runtime={element.runtime}
+            rating={element.rating}
             image={element.image}
             summary={element.summary}
             _links={element._links}

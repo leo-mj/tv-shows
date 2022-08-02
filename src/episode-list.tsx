@@ -2,7 +2,11 @@ import IEpisode from "./utils/i-episode";
 import { episodeCode } from "./utils/episode-code";
 import { omitPTags } from "./utils/omit-p-tags";
 
-export function EpisodeList(episode: IEpisode): JSX.Element {
+interface EpisodeListProps {
+  episode: IEpisode;
+}
+
+export function EpisodeList({ episode }: EpisodeListProps): JSX.Element {
   return (
     <div className="episodeEntry">
       <h1>{episode.name}</h1>

@@ -1,5 +1,5 @@
 // import episodes from "./episodes.json";
-import { EpisodeList } from "./episode-list";
+import { EpisodeList } from "./EpisodeList";
 import { episodeMatch } from "../utils/episode-match";
 import IEpisode from "../utils/i-episode";
 import { useEffect, useState } from "react";

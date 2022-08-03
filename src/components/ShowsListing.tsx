@@ -11,6 +11,7 @@ interface ShowsListingProps {
 
 function ShowsListing({ setSelectedShow }: ShowsListingProps): JSX.Element {
   const [searchText, setSearchText] = useState<string>("");
+  const [allFavourites, setAllFavourites] = useState<number[]>([]);
   const filteredShows: IShow[] = shows
     .filter((show) => showMatch(show, searchText))
     .sort(caseInsensitiveAlphabet);
@@ -39,7 +40,13 @@ function ShowsListing({ setSelectedShow }: ShowsListingProps): JSX.Element {
         ))}
       </select>
       {filteredShows.map((show, i) => (
-        <ShowList setSelectedShow={setSelectedShow} key={i} show={show} />
+        <ShowList
+          setSelectedShow={setSelectedShow}
+          setAllFavourites={setAllFavourites}
+          allFavourites={allFavourites}
+          key={i}
+          show={show}
+        />
       ))}
     </>
   );

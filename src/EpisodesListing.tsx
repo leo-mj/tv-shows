@@ -18,9 +18,6 @@ function EpisodesListing({
 }: EpisodesListingProps): JSX.Element {
   const [searchText, setSearchText] = useState<string>("");
   const [previousData, setData] = useState<IEpisode[]>([]);
-  //   const [showURL, setShowURL] = useState<string>(
-  //     "https://api.tvmaze.com/shows/${selected/episodes"
-  //   );
   useEffect(() => {
     fetch(`https://api.tvmaze.com/shows/${selectedShow}/episodes`)
       .then((response) => response.json())

@@ -17,15 +17,15 @@ function EpisodesListing({
   setSelectedShow,
 }: EpisodesListingProps): JSX.Element {
   const [searchText, setSearchText] = useState<string>("");
-  const [previousData, setData] = useState<IEpisode[]>([]);
+  const [allEpisodes, setEpisodes] = useState<IEpisode[]>([]);
   useEffect(() => {
     fetch(`https://api.tvmaze.com/shows/${selectedShow}/episodes`)
       .then((response) => response.json())
       .then((jsonBody: IEpisode[]) => {
-        setData(jsonBody);
+        setEpisodes(jsonBody);
       });
   }, [selectedShow]);
-  const filteredEpisodes: IEpisode[] = previousData.filter((episode) =>
+  const filteredEpisodes: IEpisode[] = allEpisodes.filter((episode) =>
     episodeMatch(episode, searchText)
   );
 
@@ -54,7 +54,7 @@ function EpisodesListing({
         placeholder="Search"
       />
       <p>
-        Displaying {filteredEpisodes.length}/{previousData.length} episodes
+        Displaying {filteredEpisodes.length}/{allEpisodes.length} episodes
       </p>
       <div className="episodeList">
         {filteredEpisodes.map((element, i) => (

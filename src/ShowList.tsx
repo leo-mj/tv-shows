@@ -1,4 +1,5 @@
 import IShow from "./utils/i-show";
+import { omitTags } from "./utils/omit-tags";
 
 interface ShowListProps {
   setSelectedShow: React.Dispatch<React.SetStateAction<number | null>>;
@@ -13,7 +14,7 @@ export default function ShowList({
     <div className="showEntry">
       <h1 onClick={() => setSelectedShow(show.id)}>{show.name}</h1>
       <img src={show.image.medium} alt="Show thumbnail" />
-      <p>{show.summary}</p>
+      {show.summary != null && <p>{omitTags(show.summary)}</p>}
       <p>Genre: {show.genres}</p>
       <p>Status: {show.status}</p>
       {show.rating.average && <p>Rating: {show.rating.average}</p>}

@@ -3,9 +3,9 @@ import { EpisodeList } from "./episode-list";
 import { episodeMatch } from "./utils/episode-match";
 import IEpisode from "./utils/i-episode";
 import { useEffect, useState } from "react";
-// import ShowList from "./shows.json";
-// import IShow from "./utils/i-show";
-// import caseInsensitiveAlphabet from "./utils/case-insensitive-alphabet";
+import ShowList from "./shows.json";
+import IShow from "./utils/i-show";
+import caseInsensitiveAlphabet from "./utils/case-insensitive-alphabet";
 
 interface EpisodesListingProps {
   selectedShow: number | null;
@@ -32,24 +32,21 @@ function EpisodesListing({
     episodeMatch(episode, searchText)
   );
 
-  //   const sortedShowList = [...ShowList].sort(caseInsensitiveAlphabet);
+  const sortedShowList = [...ShowList].sort(caseInsensitiveAlphabet);
   return (
     <>
-      {/* <label htmlFor="shows">Choose a show:</label>
+      <label htmlFor="shows">Choose a show:</label>
       <select
         name="shows"
         id="shows"
-        onChange={(e) => setSelectedShow(e.target.value)}
+        onChange={(e) => setSelectedShow(parseInt(e.target.value))}
       >
         {sortedShowList.map((show: IShow, i) => (
-          <option
-            key={i}
-            value={show.id}
-          >
+          <option key={i} value={show.id}>
             {show.name}
           </option>
         ))}
-      </select> */}
+      </select>
       <button type="button" onClick={() => setSelectedShow(null)}>
         Return to shows list
       </button>

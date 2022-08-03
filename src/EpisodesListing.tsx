@@ -32,7 +32,7 @@ function EpisodesListing({
   const sortedShowList = [...ShowList].sort(caseInsensitiveAlphabet);
   return (
     <>
-      <label htmlFor="shows">Choose a show:</label>
+      <label htmlFor="shows">Choose a different show: </label>
       <select
         name="shows"
         id="shows"

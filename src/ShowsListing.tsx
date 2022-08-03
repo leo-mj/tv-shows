@@ -26,7 +26,7 @@ function ShowsListing({ setSelectedShow }: ShowsListingProps): JSX.Element {
       <p>
         Displaying {filteredShows.length} / {shows.length} shows
       </p>
-      <label htmlFor="shows">Choose a show:</label>
+      <label htmlFor="shows">Choose a show: </label>
       <select
         onChange={(e) => setSelectedShow(parseInt(e.target.value))}
         name="shows"

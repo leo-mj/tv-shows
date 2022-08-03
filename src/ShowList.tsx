@@ -10,7 +10,7 @@ export default function ShowList({
   show,
 }: ShowListProps): JSX.Element {
   return (
-    <>
+    <div className="showEntry">
       <h1 onClick={() => setSelectedShow(show.id)}>{show.name}</h1>
       <img src={show.image.medium} alt="Show thumbnail" />
       <p>{show.summary}</p>
@@ -18,6 +18,6 @@ export default function ShowList({
       <p>Status: {show.status}</p>
       {show.rating.average && <p>Rating: {show.rating.average}</p>}
       {show.runtime && <p>Runtime: {show.runtime}</p>}
-    </>
+    </div>
   );
 }

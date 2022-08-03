@@ -6,13 +6,21 @@
 .episodeEntry {
     display: block;
     width: 500px;
+    height: auto;
     margin: 20px 50px 20px 50px;
-    padding: 5px 10px;
+    padding: 5px 10px 5px 10px;
     border: solid black 1px;
 }
 
 .episodeImg {
     width: 90%;
+}
+
+.episodeNotes {
+    width: 90%;
+    height: 45px;
+    text-align: left top;
+    text-overflow: clip;
 }
 
 .showEntry {

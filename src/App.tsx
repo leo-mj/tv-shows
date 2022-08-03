@@ -1,6 +1,6 @@
-import EpisodesListing from "./EpisodesListing";
+import EpisodesListing from "./components/EpisodesListing";
 import { useState } from "react";
-import ShowsListing from "./ShowsListing";
+import ShowsListing from "./components/ShowsListing";
 
 function App(): JSX.Element {
   const [selectedShow, setSelectedShow] = useState<number | null>(null);

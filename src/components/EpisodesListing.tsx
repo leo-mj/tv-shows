@@ -1,11 +1,11 @@
 // import episodes from "./episodes.json";
 import { EpisodeList } from "./episode-list";
-import { episodeMatch } from "./utils/episode-match";
-import IEpisode from "./utils/i-episode";
+import { episodeMatch } from "../utils/episode-match";
+import IEpisode from "../utils/i-episode";
 import { useEffect, useState } from "react";
-import ShowList from "./shows.json";
-import IShow from "./utils/i-show";
-import caseInsensitiveAlphabet from "./utils/case-insensitive-alphabet";
+import ShowList from "../shows.json";
+import IShow from "../utils/i-show";
+import caseInsensitiveAlphabet from "../utils/case-insensitive-alphabet";
 
 interface EpisodesListingProps {
   selectedShow: number | null;

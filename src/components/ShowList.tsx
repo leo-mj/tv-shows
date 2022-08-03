@@ -1,5 +1,5 @@
-import IShow from "./utils/i-show";
-import { omitTags } from "./utils/omit-tags";
+import IShow from "../utils/i-show";
+import { omitTags } from "../utils/omit-tags";
 
 interface ShowListProps {
   setSelectedShow: React.Dispatch<React.SetStateAction<number | null>>;

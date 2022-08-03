@@ -1,8 +1,8 @@
 import { useState } from "react";
-import shows from "./shows.json";
-import IShow from "./utils/i-show";
-import { showMatch } from "./utils/show-match";
-import caseInsensitiveAlphabet from "./utils/case-insensitive-alphabet";
+import shows from "../shows.json";
+import IShow from "../utils/i-show";
+import { showMatch } from "../utils/show-match";
+import caseInsensitiveAlphabet from "../utils/case-insensitive-alphabet";
 import ShowList from "./ShowList";
 
 interface ShowsListingProps {

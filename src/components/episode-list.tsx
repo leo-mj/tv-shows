@@ -1,6 +1,6 @@
-import IEpisode from "./utils/i-episode";
-import { episodeCode } from "./utils/episode-code";
-import { omitTags } from "./utils/omit-tags";
+import IEpisode from "../utils/i-episode";
+import { episodeCode } from "../utils/episode-code";
+import { omitTags } from "../utils/omit-tags";
 
 interface EpisodeListProps {
   episode: IEpisode;

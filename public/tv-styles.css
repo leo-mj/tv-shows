@@ -11,13 +11,40 @@
     border: solid black 1px;
 }
 
-.episodeImage {
-    height: 100px;
-    width: 150px;
+.episodeImg {
+    width: 90%;
 }
 
 .showEntry {
     margin: 20px 50px 20px 50px;
     padding: 5px 10px;
     border: solid black 1px;
+}
+
+.showBody {
+    display: flex;
+    padding: 5px 10px 20px 10px;
+}
+
+.showText {
+    display: block;
+    padding: 5px 10px;
+}
+
+.showImg {
+    height: 40%;
+}
+
+@media only screen and (max-width: 1259px) {
+    .episodeEntry {
+        width: 100%;
+    }
+
+    .showBody {
+        display: block;
+    }
+
+    .showText {
+        padding: 0px 0px;
+    }
 }

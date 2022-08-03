@@ -13,12 +13,16 @@ export default function ShowList({
   return (
     <div className="showEntry">
       <h1 onClick={() => setSelectedShow(show.id)}>{show.name}</h1>
-      <img src={show.image.medium} alt="Show thumbnail" />
-      {show.summary != null && <p>{omitTags(show.summary)}</p>}
-      <p>Genre: {show.genres}</p>
-      <p>Status: {show.status}</p>
-      {show.rating.average && <p>Rating: {show.rating.average}</p>}
-      {show.runtime && <p>Runtime: {show.runtime}</p>}
+      <main className="showBody">
+        <img className="showImg" src={show.image.medium} alt="Show thumbnail" />
+        <div className="showText">
+          {show.summary != null && <p>{omitTags(show.summary)}</p>}
+          <p>Genre: {show.genres}</p>
+          <p>Status: {show.status}</p>
+          {show.rating.average && <p>Rating: {show.rating.average}</p>}
+          {show.runtime && <p>Runtime: {show.runtime}</p>}
+        </div>
+      </main>
     </div>
   );
 }

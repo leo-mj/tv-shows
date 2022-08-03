@@ -17,7 +17,7 @@ export default function ShowList({
         <img className="showImg" src={show.image.medium} alt="Show thumbnail" />
         <div className="showText">
           {show.summary != null && <p>{omitTags(show.summary)}</p>}
-          <p>Genre: {show.genres}</p>
+          <p>Genre: {show.genres.join(" | ")}</p>
           <p>Status: {show.status}</p>
           {show.rating.average && <p>Rating: {show.rating.average}</p>}
           {show.runtime && <p>Runtime: {show.runtime}</p>}

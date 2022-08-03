@@ -27,12 +27,13 @@ function ShowsListing({ setSelectedShow }: ShowsListingProps): JSX.Element {
         Displaying {filteredShows.length} / {shows.length} shows
       </p>
       <label htmlFor="shows">Choose a show:</label>
-      <select name="shows" id="shows">
+      <select
+        onChange={(e) => setSelectedShow(parseInt(e.target.value))}
+        name="shows"
+        id="shows"
+      >
         {filteredShows.map((show: IShow, i) => (
-          <option
-            key={i}
-            value={`https://api.tvmaze.com/shows/${show.id}/episodes`}
-          >
+          <option key={i} value={show.id}>
             {show.name}
           </option>
         ))}

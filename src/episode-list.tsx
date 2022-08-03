@@ -13,7 +13,7 @@ export function EpisodeList({ episode }: EpisodeListProps): JSX.Element {
       <h2>{episodeCode(episode.season, episode.number)}</h2>
       {episode.image != null && (
         <img
-          className="episodeImage"
+          className="episodeImg"
           src={episode.image.medium}
           alt="episode thumbnail"
         />

@@ -1,5 +1,6 @@
 import IShow from "../utils/i-show";
 import { omitTags } from "../utils/omit-tags";
+import {useEffect, useState} from 'react';
 
 interface ShowListProps {
   setSelectedShow: React.Dispatch<React.SetStateAction<number | null>>;
@@ -14,19 +15,41 @@ export default function ShowList({
   allFavourites,
   show,
 }: ShowListProps): JSX.Element {
+
+  const [isFavourite, setIsFavourite] = useState<boolean>(() => {
+    let value;
+    try {
+      value = JSON.parse(window.localStorage.getItem(JSON.stringify(show.id)) || 'false');
+    }
+    catch (e) {
+      value = false;
+    }
+    return value;
+  });
+
+  useEffect(() => {
+    window.localStorage.setItem(JSON.stringify(show.id), JSON.stringify(isFavourite))
+  }, [isFavourite, show.id])
+
   return (
     <div className="showEntry">
       <h1 onClick={() => setSelectedShow(show.id)}>{show.name}</h1>
-      {allFavourites.includes(show.id) ? (
+      {(isFavourite) || allFavourites.includes(show.id) ? (
         <button
-          onClick={() =>
+          onClick={() => {
             setAllFavourites([...allFavourites].filter((a) => a !== show.id))
+            setIsFavourite(false);
+            
+          }
           }
         >
           ★
         </button>
       ) : (
-        <button onClick={() => setAllFavourites([...allFavourites, show.id])}>
+        <button onClick={() => {
+          setAllFavourites([...allFavourites, show.id])
+          setIsFavourite(true);
+        }}>
           ☆
         </button>
       )}

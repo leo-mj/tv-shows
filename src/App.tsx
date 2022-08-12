@@ -1,7 +1,21 @@
-import { greet } from "./utils/greet";
+import EpisodesListing from "./components/EpisodesListing";
+import { useState } from "react";
+import ShowsListing from "./components/ShowsListing";
 
 function App(): JSX.Element {
-  return <h1>{greet("World")}</h1>;
+  const [selectedShow, setSelectedShow] = useState<number | null>(null);
+  return (
+    <>
+      {selectedShow ? (
+        <EpisodesListing
+          selectedShow={selectedShow}
+          setSelectedShow={setSelectedShow}
+        />
+      ) : (
+        <ShowsListing setSelectedShow={setSelectedShow} />
+      )}
+    </>
+  );
 }
 
 export default App;
